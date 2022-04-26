@@ -17,14 +17,18 @@ public class Camera_follow : MonoBehaviour
     }
     void LateUpdate()
     { 
-
-        if (transform_player != null)
+        if(AttackScence.GetInstance().isShake==false)
         {
-            if (transform1.position != transform_player.position)
+            if (transform_player != null)
             {
-                Vector3 CameraFollow = transform_player.position;
-                transform1.position = Vector3.Lerp(transform1.position, CameraFollow, smooth);
+                if (transform1.position != transform_player.position)
+                {
+                    Vector3 CameraFollow = transform_player.position;
+                    transform1.position = Vector3.Lerp(transform1.position, CameraFollow, smooth);
+                }
             }
+
         }
+        
     }
 }

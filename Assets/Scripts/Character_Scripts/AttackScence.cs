@@ -32,7 +32,7 @@ public class AttackScence : MonoBehaviour
     }
 
 
-    private bool isShake;
+    public bool isShake;
 
     public void CameraShake(float duration,float strength)
     {
@@ -51,16 +51,16 @@ public class AttackScence : MonoBehaviour
 
     IEnumerator Pause(int duration)
     {
+       
         float pauseTime = duration / 60f;
         Time.timeScale = 0;
         yield return new WaitForSecondsRealtime(pauseTime);
         Time.timeScale = 1;
-       
-        
     }
 
     IEnumerator Shake(float duration,float strength)
     {
+       
         isShake = true;
         Transform camera = Camera.main.transform;
         Vector3 startPosition=camera.position;
