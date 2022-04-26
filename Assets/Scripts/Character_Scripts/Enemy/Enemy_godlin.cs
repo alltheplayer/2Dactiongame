@@ -6,8 +6,11 @@ public class Enemy_godlin : MonoBehaviour
 {
 
     public float speed;
+    public float health;
+    public float damage;
     private Vector2 direction;
     private bool ishit;
+
 
     private AnimatorStateInfo info;
     private Animator animator;
@@ -34,12 +37,23 @@ public class Enemy_godlin : MonoBehaviour
                 ishit = false;
             }
         }
+        if(health<0)
+        {
+            animator.SetTrigger("die");          
+        }
+
     }
     public  void GetHit(Vector2 direction)
     {
         transform.localScale = new Vector3(-direction.x*5, 5, 5);
         ishit= true;
+        health -= damage;
         this.direction = direction;
         animator.SetTrigger("hit");
+    }
+
+    public void Die()
+    {
+        Destroy(this.gameObject);
     }
 }

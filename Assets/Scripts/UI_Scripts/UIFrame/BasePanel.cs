@@ -18,6 +18,7 @@ public class BasePanel
     public virtual void OnStart()
     {
         Debug.Log($"{uIType.Name}已经开始使用");
+
         if(Activeobj.GetComponent<CanvasGroup>()== null)
         {
             Activeobj.AddComponent<CanvasGroup>();

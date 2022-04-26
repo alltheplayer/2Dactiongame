@@ -24,7 +24,11 @@ public class Second_Panel : BasePanel
     }
 
     public void Back()
-    {
+    {   
+        //弹出问题，这里直接把该panel给pop掉了，导致消失的动画不能实现
+        //AttackScence.GetInstance().hidepanel(this.Activeobj);
+
+
         GameRoot.GetInstance().uIManager_Root.Pop(false);
         GameRoot.isExit = false;
         Time.timeScale = 1;

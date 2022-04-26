@@ -5,6 +5,9 @@ using UnityEngine;
 public class AttackScence : MonoBehaviour
 {
     private static AttackScence instance;
+    public AnimationCurve showCurse;
+    public AnimationCurve hideCurse;
+    public float animationspeed;
 
 
 
@@ -48,6 +51,16 @@ public class AttackScence : MonoBehaviour
         StartCoroutine(Pause(duration));
     }
 
+    public void Showpanel(GameObject gameObject)
+    {
+        StartCoroutine(ShowPanel(gameObject));
+    }
+
+    public void hidepanel(GameObject gameObject)
+    {
+        StartCoroutine(hidePanel(gameObject));
+    }
+
 
     IEnumerator Pause(int duration)
     {
@@ -75,5 +88,28 @@ public class AttackScence : MonoBehaviour
         isShake=false;       
     }
 
-  
+    IEnumerator ShowPanel(GameObject gameobject)
+    {
+        float timer = 0;
+        while(timer<=1)
+        {   
+            RectTransform rect=gameobject.GetComponent<RectTransform>();
+            rect.localScale=Vector3.one*showCurse.Evaluate(timer);
+            timer += Time.deltaTime * animationspeed;
+            yield return null;  
+        }
+    }
+
+    IEnumerator hidePanel(GameObject gameobject)
+    {
+        float timer = 0;
+        while (timer <= 1)
+        {
+            gameObject.transform.localScale = Vector3.one * hideCurse.Evaluate(timer);
+            timer += Time.deltaTime * animationspeed;
+            yield return null;
+        }
+    }
+
+
 }
