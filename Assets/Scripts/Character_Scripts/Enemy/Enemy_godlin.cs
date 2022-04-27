@@ -43,7 +43,7 @@ public class Enemy_godlin : MonoBehaviour
         }
 
     }
-    public  void GetHit(Vector2 direction)
+    public void GetHit(Vector2 direction)
     {
         transform.localScale = new Vector3(-direction.x*5, 5, 5);
         ishit= true;

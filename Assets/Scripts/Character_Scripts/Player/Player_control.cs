@@ -16,7 +16,7 @@ public class Player_control : MonoBehaviour
     public float lightStrength;
     public int heavyPause;
     public float heavyStrength;
-
+    public int damage;
    
 
 
@@ -148,10 +148,10 @@ public class Player_control : MonoBehaviour
 
             if(filp==1)
             {
-                collision.GetComponent<Enemy_godlin>().GetHit(Vector2.right);
+                collision.GetComponent<FSM>().GetHit(Vector2.right,damage);
             }else if(filp==-1)
             {
-                collision.GetComponent<Enemy_godlin>().GetHit(Vector2.left);
+                collision.GetComponent<FSM>().GetHit(Vector2.left,damage);
             }
         }
     }

@@ -83,6 +83,8 @@ public class UIManager {
             }
 
         }
+        //此处用于控制ui弹出动画
+        AttackScence.GetInstance().Showpanel(basePanel.Activeobj);
         basePanel.OnStart();    
     }
 

@@ -70,7 +70,7 @@ public class GameRoot : MonoBehaviour
         {  
             Second_Panel second_Panel = new Second_Panel();
             GameRoot.GetInstance().uIManager_Root.Push(second_Panel);
-            AttackScence.GetInstance().Showpanel(second_Panel.Activeobj);
+            
 
             //此处用于控制游戏暂停，当玩家打开esc菜单游戏暂停，但是和ui弹出的逻辑相冲突，待解决
            // Time.timeScale=0;
