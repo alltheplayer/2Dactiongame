@@ -20,7 +20,7 @@ public class First_Panel : BasePanel
         base.OnStart();
         
         UIMehod.GetInstance().GetOrAddSingleComponentInChild<Button>(Activeobj, "Button_1").onClick.AddListener(LoadScene2);
-        UIMehod.GetInstance().GetOrAddSingleComponentInChild<Button>(Activeobj, "Button_2").onClick.AddListener(ShowInformation);
+        UIMehod.GetInstance().GetOrAddSingleComponentInChild<Button>(Activeobj, "Button_2").onClick.AddListener(()=>{ ShowInformation(); });
         UIMehod.GetInstance().GetOrAddSingleComponentInChild<Button>(Activeobj, "Button_3").onClick.AddListener(ShowTest1_panel);
         UIMehod.GetInstance().GetOrAddSingleComponentInChild<Button>(Activeobj, "Button_4").onClick.AddListener(Exitgame);
     }
